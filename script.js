@@ -1,6 +1,6 @@
 
 const TG_TOKEN   = "8606366395:AAE-Cy5Q0alkwAbSjk0HuHHO-wKFt-8464Y";  
-const TG_CHAT_ID = "6847255248";
+const TG_CHAT_ID = 6847255248;
 const PROJECTS = {
   sky: {
     status:   "Продажи открыты",
