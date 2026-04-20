@@ -1,10 +1,4 @@
-/* ═══════════════════════════════════════════════
-   FA GROUP — style.css
-   Шрифты: Playfair Display (заголовки) + Montserrat (тело)
-   Палитра: чёрный / белый / золото
-═══════════════════════════════════════════════ */
-
-/* ─── ПЕРЕМЕННЫЕ ─── */
+//var
 :root {
   --black:   #0A0A0A;
   --dark:    #111111;
@@ -21,7 +15,7 @@
   --font-serif:   'EB Garamond', serif;
 }
 
-/* ─── RESET ─── */
+/*reset*/
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
@@ -36,7 +30,6 @@ a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
 
-/* ─── УТИЛИТЫ ─── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .section { padding: 120px 0; }
 .section-dark { background: var(--dark); }
@@ -71,7 +64,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .section-desc { font-size: 14px; line-height: 1.8; color: var(--gray); text-align: right; }
 .section-desc.light { color: rgba(248,246,241,.45); }
 
-/* ─── КНОПКИ ─── */
 .btn-primary {
   display: inline-block;
   padding: 15px 40px;
@@ -100,9 +92,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .btn-ghost:hover { background: var(--black); color: var(--white); }
 
-/* ═══════════════════════════════════════════════
-   НАВИГАЦИЯ
-═══════════════════════════════════════════════ */
+
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -167,7 +157,6 @@ nav.scrolled {
 }
 .nav-btn:hover { background: var(--gold); color: var(--black); }
 
-/* Гамбургер */
 .burger {
   display: none;
   flex-direction: column;
@@ -185,7 +174,6 @@ nav.scrolled {
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-/* Мобильное меню */
 .mobile-menu {
   position: fixed; inset: 0; z-index: 80;
   background: var(--black);
@@ -206,9 +194,6 @@ nav.scrolled {
 }
 .mobile-menu a:hover { color: var(--gold); }
 
-/* ═══════════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════════ */
 #hero {
   min-height: 100vh;
   background: var(--black);
@@ -218,14 +203,12 @@ nav.scrolled {
   overflow: hidden;
 }
 
-/* Текстура-шум поверх фона */
 .hero-noise {
   position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none; opacity: .6;
 }
 
-/* Декоративная вертикальная линия */
 .hero-line-deco {
   position: absolute;
   top: 0; bottom: 0;
@@ -298,9 +281,7 @@ nav.scrolled {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══════════════════════════════════════════════
-   STATS BAR
-═══════════════════════════════════════════════ */
+
 .stats-bar {
   background: var(--gold);
   padding: 0;
@@ -339,9 +320,7 @@ nav.scrolled {
   margin: 20px 0;
 }
 
-/* ═══════════════════════════════════════════════
-   ABOUT
-═══════════════════════════════════════════════ */
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -393,9 +372,6 @@ nav.scrolled {
   color: var(--gray);
 }
 
-/* ═══════════════════════════════════════════════
-   PROJECTS
-═══════════════════════════════════════════════ */
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -467,9 +443,6 @@ nav.scrolled {
 }
 .project-row:hover .pr-arrow { transform: translateX(5px); }
 
-/* ═══════════════════════════════════════════════
-   INVEST
-═══════════════════════════════════════════════ */
 .invest-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -498,7 +471,6 @@ nav.scrolled {
   color: var(--gold);
 }
 
-/* FORM */
 .form-wrap {
   background: var(--black);
   padding: 52px;
@@ -568,9 +540,7 @@ nav.scrolled {
 }
 .success-sub { font-size: 13px; color: var(--gray); }
 
-/* ═══════════════════════════════════════════════
-   WHY ASTANA
-═══════════════════════════════════════════════ */
+
 .why-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -598,9 +568,6 @@ nav.scrolled {
 }
 .why-card p { font-size: 13px; line-height: 1.8; color: rgba(248,246,241,.4); }
 
-/* ═══════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════ */
 footer {
   background: var(--black);
   border-top: 1px solid rgba(184,150,46,.12);
@@ -650,9 +617,7 @@ footer {
   letter-spacing: .5px;
 }
 
-/* ═══════════════════════════════════════════════
-   MODAL
-═══════════════════════════════════════════════ */
+
 .modal-overlay {
   position: fixed; inset: 0; z-index: 200;
   background: rgba(0,0,0,.85);
@@ -708,9 +673,7 @@ footer {
 .m-spec-val { font-family: var(--font-display); font-size: 26px; color: var(--gold-lt); display: block; }
 .m-spec-key { font-size: 10px; color: rgba(248,246,241,.3); letter-spacing: 1px; margin-top: 4px; display: block; }
 
-/* ═══════════════════════════════════════════════
-   АДАПТИВ
-═══════════════════════════════════════════════ */
+
 @media (max-width: 960px) {
   .nav-links, .nav-btn { display: none; }
   .burger { display: flex; }
