@@ -1,20 +1,6 @@
-/* ═══════════════════════════════════════════════
-   FA GROUP — script.js
-═══════════════════════════════════════════════ */
 
-/* ═══════════════════════════════════════════════
-   TELEGRAM НАСТРОЙКИ
-   ──────────────────────────────────────────────
-   1. Создай бота через @BotFather → получи TOKEN
-   2. Напиши своему боту, потом открой:
-      https://api.telegram.org/bot<TOKEN>/getUpdates
-      найди "chat":{"id": XXXXXX} — это твой CHAT_ID
-   3. Вставь ниже:
-═══════════════════════════════════════════════ */
-const TG_TOKEN   = "СЮДА_ВСТАВЬ_ТОКЕН_БОТА";   // пример: 7123456789:AAFxxxxxxxx
-const TG_CHAT_ID = "СЮДА_ВСТАВЬ_CHAT_ID";       // пример: 123456789
-
-/* ─── ДАННЫЕ ПРОЕКТОВ ─── */
+const TG_TOKEN   = "8606366395:AAE-Cy5Q0alkwAbSjk0HuHHO-wKFt-8464Y";  
+const TG_CHAT_ID = "6847255248";
 const PROJECTS = {
   sky: {
     status:   "Продажи открыты",
@@ -51,17 +37,14 @@ const PROJECTS = {
   }
 };
 
-/* ═══════════════════════════════════════════════
-   НАВИГАЦИЯ — тёмный фон при скролле
-═══════════════════════════════════════════════ */
+
 window.addEventListener("scroll", () => {
   document.getElementById("nav")
     .classList.toggle("scrolled", window.scrollY > 60);
 });
 
-/* ═══════════════════════════════════════════════
-   МОБИЛЬНОЕ МЕНЮ
-═══════════════════════════════════════════════ */
+
+
 document.getElementById("burger").addEventListener("click", () => {
   const burger = document.getElementById("burger");
   const menu   = document.getElementById("mobileMenu");
@@ -70,15 +53,15 @@ document.getElementById("burger").addEventListener("click", () => {
   document.body.style.overflow = menu.classList.contains("open") ? "hidden" : "";
 });
 
+//мобильное меню//
+
 function closeMob() {
   document.getElementById("burger").classList.remove("open");
   document.getElementById("mobileMenu").classList.remove("open");
   document.body.style.overflow = "";
 }
 
-/* ═══════════════════════════════════════════════
-   СЧЁТЧИКИ (анимируются при попадании в экран)
-═══════════════════════════════════════════════ */
+//счетчик//
 function runCounters() {
   document.querySelectorAll(".stat-n[data-target]").forEach(el => {
     const target = parseInt(el.dataset.target);
@@ -102,9 +85,7 @@ const statsObserver = new IntersectionObserver(entries => {
 const statsBar = document.querySelector(".stats-bar");
 if (statsBar) statsObserver.observe(statsBar);
 
-/* ═══════════════════════════════════════════════
-   МОДАЛКА ПРОЕКТОВ
-═══════════════════════════════════════════════ */
+//модалка/
 function openModal(key) {
   const p = PROJECTS[key];
   if (!p) return;
@@ -158,9 +139,7 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeModal();
 });
 
-/* ═══════════════════════════════════════════════
-   ФОРМА → TELEGRAM
-═══════════════════════════════════════════════ */
+/отправка в тг/
 async function submitForm() {
   const name    = document.getElementById("f-name").value.trim();
   const phone   = document.getElementById("f-phone").value.trim();
@@ -168,16 +147,15 @@ async function submitForm() {
   const budget  = document.getElementById("f-budget").value;
   const comment = document.getElementById("f-comment").value.trim();
 
-  /* Простая валидация */
+  /валидауция/
   if (!name) { alert("Введите ваше имя"); return; }
   if (!phone) { alert("Введите номер телефона"); return; }
 
-  /* Блокируем кнопку */
+
   const btn = document.getElementById("submitBtn");
   btn.textContent = "Отправка...";
   btn.disabled = true;
-
-  /* Формируем текст сообщения */
+/заявка/
   const now = new Date().toLocaleString("ru-RU", { timeZone: "Asia/Almaty" });
   const text = [
     "🏢 <b>Новая заявка — FA Group</b>",
@@ -191,7 +169,7 @@ async function submitForm() {
     `🕐 ${now}`
   ].filter(Boolean).join("\n");
 
-  /* Отправка в Telegram */
+  /отправка в тг/
   try {
     const res = await fetch(
       `https://api.telegram.org/bot${TG_TOKEN}/sendMessage`,
