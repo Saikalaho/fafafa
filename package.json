@@ -1,0 +1,11 @@
+{
+  "name": "fa-group-website",
+  "version": "1.0.0",
+  "description": "FA Group — Жилые комплексы в Астане",
+  "scripts": {
+    "start": "npx serve . -p $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
